@@ -41,4 +41,4 @@ Distribuído sob a [Licença MIT](LICENSE).
 
 ## 🙏 Créditos
 
-Créditos especiais ao amigo e idealizador do plugin: **EV**
+Créditos especiais ao amigo e idealizador do plugin: **[EV](http://steamcommunity.com/profiles/76561198073154044)**
