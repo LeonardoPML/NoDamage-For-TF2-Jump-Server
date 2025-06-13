@@ -1,5 +1,7 @@
 # NoDamage-For-TF2-Jump-Server
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 Um plugin simples para servidores de **Jump** no Team Fortress 2.  
 Ele **desativa o dano causado a outros jogadores**, mantendo apenas o autodano — ideal para treinos e servidores onde o foco não é combate.
 
