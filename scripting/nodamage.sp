@@ -3,10 +3,10 @@
 
 public Plugin myinfo = 
 {
-    name = "No Damage - Entre Times",
+    name = "NoDamage",
     author = "SERASA & EV",
     description = "Desabilita o dano entre jogadores de times diferentes",
-    version = "1.0",
+    version = "1.1.0",
     url = "https://www.gametracker.com/server_info/191.209.110.83:27015/"
 };
 
@@ -14,7 +14,8 @@ bool g_NoDamageEnabled = true;
 
 public void OnPluginStart()
 {
-    RegAdminCmd("sm_toggle_nodamage", Command_ToggleNoDamage, ADMFLAG_GENERIC, "Ativa ou desativa a proteção contra dano entre jogadores (exceto auto-dano).");
+    LoadTranslations("nodamage.phrases");
+    RegAdminCmd("sm_nodamage", Command_ToggleNoDamage, ADMFLAG_GENERIC, "Ativa ou desativa a proteção contra dano entre jogadores (exceto auto-dano).");
 
     // Hook de dano
     for (int i = 1; i <= MaxClients; i++)
@@ -55,14 +56,29 @@ public Action Command_ToggleNoDamage(int client, int args)
 {
     g_NoDamageEnabled = !g_NoDamageEnabled;
 
-    char status[32];
-    Format(status, sizeof(status), g_NoDamageEnabled ? "ATIVADA" : "DESATIVADA");
+    char statusKey[32];
+    if (g_NoDamageEnabled)
+    {
+        strcopy(statusKey, sizeof(statusKey), "status_enabled");
+    }
+    else
+    {
+        strcopy(statusKey, sizeof(statusKey), "status_disabled");
+    }
 
-    PrintToChatAll("[NoDamage] Proteção contra dano entre jogadores está agora: %s", status);
+    for (int i = 1; i <= MaxClients; i++)
+    {
+        if (IsClientInGame(i))
+        {
+            char translatedStatus[64];
+            Format(translatedStatus, sizeof(translatedStatus), "%T", statusKey, i);
+
+            PrintToChat(i, "%T", "status_changed", i, translatedStatus);
+        }
+    }
 
     return Plugin_Handled;
 }
-
 bool IsValidClient(int client)
 {
     return (client > 0 && client <= MaxClients && IsClientInGame(client) && IsPlayerAlive(client));

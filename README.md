@@ -11,7 +11,7 @@ Ele **desativa o dano causado a outros jogadores**, mantendo apenas o autodano �
 - O **único tipo de dano permitido** é o autodano (como rocket jump).
 - Pode ser ativado ou desativado com o comando:  
   ```
-  sm_toggle_nodamage
+  sm_nodamage
   ```
 
 ## 📦 Instalação
@@ -20,7 +20,11 @@ Ele **desativa o dano causado a outros jogadores**, mantendo apenas o autodano �
    ```
    addons/sourcemod/plugins
    ```
-2. Carregue o plugin com o comando:
+2. Copie o arquivo `nodamage.phrases.txt` para:
+   ```
+   addons/sourcemod/translations
+   ```
+3. Carregue o plugin com o comando:
    ```
    sm plugins load nodamage.smx
    ```

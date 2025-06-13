@@ -1,0 +1,18 @@
+"Phrases"
+{
+    "status_enabled"
+    {
+        "en"    "ENABLED"
+        "pt"    "ATIVADO"
+    }
+    "status_disabled"
+    {
+        "en"    "DISABLED"
+        "pt"    "DESATIVADO"
+    }
+    "status_changed"
+    {
+        "en"    "[NoDamage] Damage to other players is now: %s"
+        "pt"    "[NoDamage] Dano em outros jogadores está agora: %s"
+    }
+}
